@@ -1,7 +1,7 @@
 # MikroTik Login Script to Auto Add Validity Scheduler
 
 ## Description
-This script will help you automatically remove expired user based on you validity time duration.
+This script will help you automatically remove expired user based on the set validity time duration.
 
 ## Instructions
 1) Download the script file.

@@ -1,0 +1,18 @@
+#MikroTikScript
+#VanzJTutorials
+#https://www.youtube.com/c/VanzJTutorials
+#https://www.facebook.com/VanZJOfficial
+#https://github.com/VanzJTutorials
+
+
+#script-start
+
+:local schUser [/system scheduler find name=$user];
+:if ($schUser="") do={
+:local validity "1d";
+:local date [ /system clock get date];
+:local time [ /system clock get time ];
+:local totaltime [/ip hotspot user get [find name="$user"] limit-uptime];
+/system scheduler add name="$user" disable=no comment="$date $time [$totaltime]" start-date=$date interval=$validity on-event="/ip hotspot active remove [find user=$user]; /ip hotspot user remove [find name=$user]; /ip hotspot cookie remove [find user=$user]; /system scheduler remove [find name=$user];"}
+
+#script-end
